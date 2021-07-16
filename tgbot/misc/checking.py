@@ -35,8 +35,10 @@ async def main():
     print("--- %s seconds ---" % (time.time() - start_time))
     print(len(agr))
 
+
 with client:
     client.loop.run_until_complete(main())
+
 #
 #
 # async def search_del_user():

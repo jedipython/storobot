@@ -6,6 +6,9 @@ from aiogram.types import Message
 from aiogram.utils.markdown import quote_html
 from tgbot.misc.checking import connect_to_telethon
 
+from tgbot.misc.checking import run_func
+
+run_func()
 
 async def user_start(message: Message):
     text = '''Привет! Я СтоРобот, твой помощник и главный аналитик.
@@ -29,7 +32,7 @@ async def channel_link(message: Message):
     message_text = message.text
     if message_text[0] == '@':
         try:
-            result = await connect_to_telethon(message_text)
+            result = await connect_to_telethon()
             await message.answer(result)
         except Exception as err:
             await message.answer(err)

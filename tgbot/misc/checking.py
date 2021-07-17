@@ -21,7 +21,9 @@ client = TelegramClient('anon', api_id, api_hash)
 
 
 letters = ['.','й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ф','ы','в','а','п','р','о','л','д','ж','э','ё','я','ч','с','м','и','т','ь','б','ю','1','2','3','4','5','6','7','8','9']
-async def main():
+
+
+async def connect_to_telethon():
     channel = await client.get_entity(1001146470778)  # id = 753519298
     agr = set()
     async for user in client.iter_participants(entity=channel, aggressive=True, limit=None):
@@ -37,7 +39,7 @@ async def main():
 
 
 with client:
-    client.loop.run_until_complete(main())
+    client.loop.run_until_complete(connect_to_telethon())
 
 #
 #
